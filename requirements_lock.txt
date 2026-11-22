@@ -1,0 +1,58 @@
+# Full freeze of the environment the reference run was produced with, including every
+# indirect dependency. Python 3.14.4 on Windows.
+#
+# For reproducing results:   pip install -r requirements_lock.txt
+# For ordinary use:          pip install -r requirements_dashboard.txt
+#
+# Why both. requirements_milp.txt and requirements_dashboard.txt name only what the code
+# imports itself. Everything those pull in is then whatever is newest on the day you
+# install, and that does move: between the two environments of 21 November 2026
+# python-dateutil went from 2.9 to 4.0 and the time zone database from 2026.4 to 2026.6,
+# without anyone asking for it. pandas reads dates with dateutil and the gas series is
+# spread over the day with the time zone rules, so those are not harmless.
+#
+# Rebuild this file with:    pip freeze > requirements_lock.txt
+# Reference run:             runs/20261121_222637_Voorbeeld_kas_S1_TMY_milp_72u
+altair==6.3.0
+anyio==4.16.0
+attrs==26.1.0
+certifi==2026.11.20
+charset-normalizer==3.5.2
+click==8.5.1
+h11==0.16.0
+h5py==3.16.0
+highspy==1.15.1
+httptools==0.9.0
+idna==3.20
+itsdangerous==2.2.0
+Jinja2==3.1.6
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+MarkupSafe==3.0.4
+narwhals==2.29.0
+numpy==2.5.3
+packaging==26.3
+pandas==2.3.3
+pillow==12.3.0
+plotly==7.1.0
+protobuf==7.36.2
+pvlib==0.16.1
+pyarrow==25.0.1
+pydeck==0.9.3
+pyomo==6.10.1
+python-dateutil==4.0.0
+python-multipart==0.0.34
+pytz==2026.6
+referencing==0.37.0
+requests==2.34.2
+rpds-py==2026.9.1
+scipy==1.18.1
+starlette==1.10.0
+streamlit==1.64.0
+toml==0.10.2
+typing_extensions==4.16.0
+tzdata==2026.6
+urllib3==2.8.0
+uvicorn==0.54.0
+watchdog==6.0.0
+websockets==16.1.1

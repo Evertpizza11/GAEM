@@ -1,0 +1,4 @@
+from config.settings import (HIERARCHY_ELECTRICITY, ACTIVE_ELECTRICITY_HIERARCHY)
+
+def get_electricity_hierarchy():
+    return HIERARCHY_ELECTRICITY[ACTIVE_ELECTRICITY_HIERARCHY]

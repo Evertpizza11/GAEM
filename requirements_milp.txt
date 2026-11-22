@@ -1,0 +1,8 @@
+# Pinned on the versions the reference run was produced with, on Python 3.14.4.
+# Exact versions on purpose: a solver that picks differently between equivalent
+# solutions gives a different dispatch, and then the results are not reproducible.
+pyomo==6.10.1
+highspy==1.15.1
+pandas==2.3.3
+numpy==2.5.3
+pvlib==0.16.1

@@ -1,0 +1,12 @@
+{
+  "naam": "Voorbeeld_kas",
+  "locatie": "",
+  "omschrijving": "Example greenhouse with synthetic measurement data",
+  "aangemaakt": "2026-11-21T21:40:05",
+  "kas_oppervlak_m2": 10000.0,
+  "kas_omhullend_m2": 12500.0,
+  "kas_setpoint_c": 20.0,
+  "kas_setpoint_leeg_c": 5.0,
+  "gasprijs_eur_per_m3": 0.45,
+  "klok_offset_uren": 1.0
+}

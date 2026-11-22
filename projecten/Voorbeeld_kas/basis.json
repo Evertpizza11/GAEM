@@ -1,0 +1,66 @@
+{
+  "schema_versie": 1,
+  "naam": "basis",
+  "omschrijving": "Copied from the basis of Methode_2_komkommer; please check.",
+  "gewijzigd": "2026-11-21T21:40:05",
+  "energiesysteem": {
+    "pv": {
+      "enabled": false,
+      "vlak1_panelen": null,
+      "vlak1_helling": null,
+      "vlak1_azimut": null,
+      "vlak2_panelen": null,
+      "vlak2_helling": null,
+      "vlak2_azimut": null,
+      "vlak3_panelen": null,
+      "vlak3_helling": null,
+      "vlak3_azimut": null,
+      "vlak4_panelen": null,
+      "vlak4_helling": null,
+      "vlak4_azimut": null,
+      "oppervlak_paneel_m2": null,
+      "eta_pv": null,
+      "eta_sys": null
+    },
+    "grid": {
+      "enabled": true,
+      "max_import_kw": 250
+    },
+    "gas_boiler": {
+      "enabled": true,
+      "min_capacity_kwth": 360,
+      "max_capacity_kwth": 1800,
+      "efficiency": 0.9,
+      "min_on_time_minutes": 60
+    },
+    "tess": {
+      "enabled": true,
+      "volume_m3": 130,
+      "min_temp_c": 35,
+      "max_temp_c": 70,
+      "starting_volume_%": 0,
+      "capacity_in_kwth": null,
+      "capacity_out_kwth": null
+    },
+    "heat_pump": {
+      "enabled": false,
+      "brontype": "lucht_water",
+      "doeltemperatuur_c": null,
+      "bron_temperatuur_c": null,
+      "min_capacity_kwe": null,
+      "max_capacity_kwe": null,
+      "min_on_time_minutes": null,
+      "control_stages": null
+    },
+    "bess": {
+      "enabled": false,
+      "capacity_kwh": null,
+      "capacity_in_kw": null,
+      "capacity_out_kw": null,
+      "starting_soc_%": null,
+      "charge_efficiency": null,
+      "discharge_efficiency": null,
+      "cont_energy_loss_%": null
+    }
+  }
+}

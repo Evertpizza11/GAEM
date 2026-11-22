@@ -1,0 +1,29 @@
+PROJECT FOLDER Voorbeeld_kas
+============================
+
+input/raw/        Put the data you received from the company here, exactly as you
+                  received it. Never edit it by hand: this is your source. The model
+                  needs meetreeks_elektra.csv: the measured electricity demand in
+                  steps of 5 minutes, with a column tijd_utc. data_gas.csv with the
+                  daily gas readings is optional. The heat demand is computed from
+                  the weather data either way, so without it only the comparison
+                  with the measured situation falls away.
+
+input/processed/  Made by the model itself out of raw/. Deleting it is always
+                  allowed: it is rebuilt on the next run.
+
+basis.json        The EXISTING energy system of the greenhouse. This is your
+                  reference: the dashboard shows it beside every input field.
+
+scenarios/        Every file is a possible energy system, for example
+                  wp_en_buffer.json. A new scenario starts as a copy of the
+                  basis; after that you may change anything.
+
+simulatie.json    Simulation settings (horizon, interval, time limit, ...).
+
+output/           Only results you deliberately kept. Every run first lands in
+                  the folder runs/ in the root folder of the model.
+
+project.json      Name, location and description of the project.
+
+Shared market data (electricity prices) is NOT here but in data/markt/.

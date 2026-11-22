@@ -1,0 +1,27 @@
+# Settings for the GAEM dashboard (streamlit run dashboard/app.py from this folder).
+[browser]
+# Do not send usage statistics to Streamlit: the dashboard works with customer data.
+gatherUsageStats = false
+
+[server]
+# The dashboard is only reachable on your own computer.
+address = "localhost"
+
+[client]
+# No 'Deploy' button: the dashboard only runs locally.
+toolbarMode = "minimal"
+
+[theme]
+# Light theme: grey-blue page with white areas on it, so that the blocks per asset and
+# per KPI stand out from the background. The asset icons are drawn dark and come out
+# better on white than on a dark background.
+#
+# In Streamlit, secondaryBackgroundColor is the area of the sidebar, the input fields and
+# the bordered containers; backgroundColor is the page around them. So those two have to
+# differ from each other, otherwise the blocks disappear.
+base = "light"
+backgroundColor = "#fcfdff"           # page: almost white
+secondaryBackgroundColor = "#e8edf5"  # blocks, sidebar and input fields: light grey-blue
+primaryColor = "#2563eb"              # accent: blue
+textColor = "#1c2430"
+font = "sans serif"

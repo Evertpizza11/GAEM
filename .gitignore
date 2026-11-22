@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors and operating system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and solver files
+*.log
+*.lp
+*.sol
+
+# Simulation results. runs/ is the working folder for every new run;
+# projecten/*/output/ holds the runs that were kept on purpose.
+runs/
+projecten/*/output/
+
+# Company data stays local. The example project is the exception: its measured series
+# is synthetic, so that one does go into the repository.
+projecten/*/input/
+!projecten/Voorbeeld_kas/input/
+!projecten/Voorbeeld_kas/input/raw/
+!projecten/Voorbeeld_kas/input/raw/meetreeks_elektra.csv
+projecten/Voorbeeld_kas/input/processed/
+projecten/*/_nog_indelen/
+projecten/*.zip
+
+# Source data that must never be published
+data/weather/*hourly weather data*.csv
+data/weather/overzicht_jaren_*.csv
+data/markt/e_prices/raw/
+structuur.txt

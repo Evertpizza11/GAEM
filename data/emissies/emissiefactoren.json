@@ -1,0 +1,122 @@
+{
+  "schema_versie": 2,
+  "lijst": "CO2emissiefactoren.nl",
+  "lijstjaar": 2025,
+  "geraadpleegd": "2026-10-29",
+  "toelichting": [
+    "Invoerdata, geen modelcode: dit bestand wordt bij elk gebruik vers van schijf gelezen.",
+    "Pas het aan als er een nieuwe lijst uitkomt; raak de code er niet voor aan.",
+    "Per energiedrager staan drie getallen: 'verbranding' (de emissie bij het verbranden",
+    "zelf), 'keten' (winning, transport en omzetting ervoor) en 'totaal'. De namen die de",
+    "bron zelf gebruikt staan in 'bron_label', zodat ze in het verslag te citeren zijn.",
+    "LET OP het verschil in afbakening tussen de twee dragers. Bij aardgas is de",
+    "verbrandingsemissie een scope 1-emissie: de tuinder verbrandt het gas zelf op het",
+    "terrein. Bij elektriciteit is ze een scope 2-emissie: de centrale verbrandt elders.",
+    "Als 'directe verbrandingsemissie van de energiedrager' zijn ze consistent, maar een",
+    "voetafdruk volgens het GHG-protocol rekent elektriciteit doorgaans op het totaal.",
+    "Daarom rapporteert het model beide en kiest het er niet een voor je."
+  ],
+
+  "aardgas": {
+    "eenheid": "kg CO2-eq per Nm3",
+    "soort": "G-gas",
+    "verbranding": 1.779,
+    "keten": 0.355,
+    "totaal": 2.134,
+    "biogeen": 0.0,
+    "bron_label": {
+      "verbranding": "TTW",
+      "keten": "WTT",
+      "totaal": "WTW",
+      "biogeen": "Biogene emissies"
+    },
+    "bron": "CO2emissiefactoren.nl, Aardgas (G-gas), lijst 2025",
+    "opmerking": [
+      "De factor geldt per Nm3 G-gas. De bron vermeldt daarbij een energie-inhoud van",
+      "31,65 MJ/m3 ONDERWAARDE; dat is precies de onderwaarde in utils/constants.py, dus",
+      "het gaat om dezelfde gasdefinitie.",
+      "Omrekenen van kWh brandstof naar Nm3 gaat met de BOVENWAARDE (9,769 kWh/m3), want",
+      "het model telt brandstof in kWh bovenwaarde en de factuur rekent per standaard kuub",
+      "op bovenwaarde. Gebruik je per ongeluk de onderwaarde (8,792 kWh/m3), dan komt er",
+      "11 % meer kuub uit en dus 11 % meer CO2, zonder dat je het ergens ziet.",
+      "Bedrijven die hoogcalorisch H-gas geleverd krijgen, zien op de factuur altijd",
+      "teruggerekende Nm3 G-gas; de bron geeft daarom alleen de G-gasfactor."
+    ]
+  },
+
+  "elektriciteit_keuze": "gridmix_onbekend",
+
+  "elektriciteit_opties": {
+    "gridmix_onbekend": {
+      "eenheid": "kg CO2-eq per kWh",
+      "soort": "Stroom (onbekend) gridmix",
+      "verbranding": 0.200,
+      "keten": 0.044,
+      "totaal": 0.244,
+      "infrastructuur": 0.016,
+      "bron_label": {
+        "verbranding": "Productie-emissies energiecentrale",
+        "keten": "Ketenemissies productie energiedragers",
+        "totaal": "Totaal",
+        "infrastructuur": "Infrastructuur (LCA-benadering)"
+      },
+      "bron": "CO2emissiefactoren.nl, Stroom (onbekend) gridmix, lijst 2025",
+      "opmerking": [
+        "De werkelijke Nederlandse netmix, inclusief het hernieuwbare deel: de",
+        "LOCATION-BASED factor. Dit is wat er gemiddeld fysiek uit het stopcontact komt,",
+        "en daarmee het getal dat hoort bij een onderzoek naar het fysieke energiesysteem",
+        "van een kas.",
+        "Deze categorie is bedoeld voor wie niet weet wat zijn leverancier levert, en dat",
+        "is hier het geval.",
+        "WAT JE ERBIJ MOET OPSCHRIJVEN: dit is niet de market-based factor. Wie geen",
+        "garanties van oorsprong koopt, zou streng genomen de residuele mix moeten",
+        "gebruiken, want een deel van de groene stroom in dit gemiddelde is al aan andere",
+        "afnemers toegerekend. Die residuele mix staat niet op deze lijst en is dus niet",
+        "te citeren. Eén zin in het verslag dat voor de location-based netmix is gekozen,",
+        "en waarom, dekt dit af.",
+        "De infrastructuurpost is hier veel groter dan bij grijze stroom (0,015 tegen",
+        "0,002), wat logisch is: wind en zon hebben hoge bouwemissies per kWh en lage",
+        "bedrijfsemissies. Hij zit NIET in het totaal en het model telt hem niet mee."
+      ]
+    },
+    "grijze_stroom": {
+      "eenheid": "kg CO2-eq per kWh",
+      "soort": "Grijze stroom",
+      "verbranding": 0.414,
+      "keten": 0.083,
+      "totaal": 0.497,
+      "infrastructuur": 0.002,
+      "bron_label": {
+        "verbranding": "Productie-emissies energiecentrale",
+        "keten": "Ketenemissies productie energiedragers",
+        "totaal": "Totaal",
+        "infrastructuur": "Infrastructuur (LCA-benadering)"
+      },
+      "bron": "CO2emissiefactoren.nl, Elektriciteit - Grijze Stroom, lijst 2025",
+      "opmerking": [
+        "Alleen kolen, gas en kernenergie, zonder het hernieuwbare deel. Ligt dichter bij",
+        "een residuele-mixbenadering dan de gridmix hierboven.",
+        "Staat hier als alternatief voor een gevoeligheidsanalyse: de keuze tussen deze",
+        "twee verandert de CO2-uitkomst met een factor 1,85 en verschuift de break-even",
+        "seizoens-COP van de warmtepomp van 1,10 naar 2,05. Zet 'elektriciteit_keuze' op",
+        "'grijze_stroom' om ermee te rekenen.",
+        "De lijst van 1 januari 2026 zet dit totaal op 0,483."
+      ]
+    }
+  },
+
+  "elektriciteit_reeks": {
+    "bestand": null,
+    "kolom": "kg_co2_per_kwh",
+    "opmerking": [
+      "Haak voor een emissiefactor die per tijdstap verschilt, in plaats van het vaste getal",
+      "hierboven. Zet 'bestand' op een pad (relatief aan de hoofdmap) van een CSV met een",
+      "Date-kolom op UTC en een kolom met de factor in kg CO2-eq per kWh. Zolang het null is,",
+      "rekent het model met het vaste getal.",
+      "Een variabele factor is inhoudelijk niet hetzelfde als een vaste: hij laat zien dat een",
+      "batterij of een warmtepomp niet alleen geld maar ook CO2 verschuift. Wie hem gebruikt,",
+      "moet in het verslag verantwoorden welke mix erachter zit (marginaal of gemiddeld) en",
+      "over welke periode."
+    ]
+  }
+}
